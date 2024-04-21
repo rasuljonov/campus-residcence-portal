@@ -1,5 +1,10 @@
+# Environment files
 .env
-.node_modules
-.config
+
+# Dependency directories
+node_modules/
+
+# Configuration files
+.config/
 
 
