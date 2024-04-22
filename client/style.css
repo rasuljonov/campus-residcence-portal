@@ -55,3 +55,34 @@ select {
     margin-bottom: 10px; /* Spacing before the submit button */
 }
 
+/* Rooms-container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+}
+
+#rooms-container {
+    margin-top: 20px;
+}
+
+.room {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.room h2 {
+    color: #5b5b5f;
+}
+
+.room p {
+    color: #666;
+    font-size: 16px;
+}

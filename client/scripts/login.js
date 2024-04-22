@@ -21,9 +21,11 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         if (response.ok) {
             // Store the token in localStorage or session
+            
             localStorage.setItem('jwt', result.token);
+            console.log(localStorage)
             console.log('Login successful: ', result.message);
-            window.location.href = '/dashboard';
+            window.location.href = '/students';
             console.log('Success:', result);
         } else {
             messageElement.textContent = 'Error: ' + result.message;

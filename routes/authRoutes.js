@@ -5,7 +5,6 @@ const router = express.Router();
 // Define the registration route
 router.post('/register', register);
 router.post('/login', login);
-router.get('/dashboard')
 
 
 module.exports = router;

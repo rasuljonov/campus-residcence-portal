@@ -19,10 +19,10 @@ exports.register = async (req, res) => {
         });
     }
 
-    // Check if user already exists
+   
     try {
 
-
+ // Check if user already exists
         const userExistsResult = await db.query(
             'SELECT * FROM users WHERE username = $1',
             [username]
@@ -40,11 +40,12 @@ exports.register = async (req, res) => {
             'INSERT INTO users (username, password_hash, phone_number, role) VALUES ($1, $2, $3, $4) RETURNING *',
             [username, hashedPassword, phone, role]
         );
-
+        
         return res.status(201).json({
             message: "Registration successful",
             user: result.rows[0]
         });
+       
 
     } catch (error) {
         // Log the error internally
@@ -84,7 +85,7 @@ exports.login = async (req, res) => {
         if (!isValid) {
             return res.status(401).json({ message: 'Incorrect password' });
         }
-        const token = jwt.sign({userId: rows[0].id, role: rows[0].role}, secretKey, {expiresIn: APP.EXPIRE_TIME || '1h'});
+        const token = jwt.sign({userId: rows[0].id, role: rows[0].role}, APP.SECRET_KEY, {expiresIn: APP.EXPIRE_TIME || '1h'});
         
 
         res.json({
