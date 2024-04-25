@@ -86,3 +86,11 @@ h1 {
     color: #666;
     font-size: 16px;
 }
+#loginLink {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#loginLink:hover {
+    text-decoration: underline;
+}
