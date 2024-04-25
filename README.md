@@ -1,1 +1,1 @@
-Welcome to Webster campus residence portal 🙌🏻
+Welcome to campus residence portal 🙌🏻
