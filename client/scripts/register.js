@@ -24,6 +24,9 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
         if (response.ok) {
             messageElement.textContent = 'Registration successful!';
             messageElement.style.color = 'green'; // Change color for success message
+            console.log('Login successful: ', result.message);
+            window.location.href = '/client/studentDashboard.html';
+            console.log('Success:', result);
             console.log('Success:', result);
         } else {
             messageElement.textContent = 'Error: ' + result.message;

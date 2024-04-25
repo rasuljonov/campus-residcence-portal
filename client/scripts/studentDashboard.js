@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:5000/students/rooms', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiU3R1ZGVudCIsImlhdCI6MTcxMzcyMzcyOCwiZXhwIjoxNzEzNzI3MzI4fQ.CFm-Ek6CkCDIOHHmYYhi0SugocSEmhQPNp2_Iwb9e_U', // Replace YOUR_JWT_TOKEN with a valid token
+            'Authorization': '', // Replace YOUR_JWT_TOKEN with a valid token
             'Content-Type': 'application/json'
         }
     })

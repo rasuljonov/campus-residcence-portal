@@ -19,5 +19,7 @@ module.exports = {
         password: process.env.DB_PASSWORD,
         port: process.env.DB_PORT,
         database: process.env.DB_NAME
-    }
+    },
+    ENVIRONMENT: process.env.NODE_ENV,
+    USE_SECURE_COOKIES: process.env.USE_SECURE_COOKIES === 'true'
 }

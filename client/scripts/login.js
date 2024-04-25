@@ -25,7 +25,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
             localStorage.setItem('jwt', result.token);
             console.log(localStorage)
             console.log('Login successful: ', result.message);
-            window.location.href = '/students';
+            window.location.href = '/client/studentDashboard.html';
             console.log('Success:', result);
         } else {
             messageElement.textContent = 'Error: ' + result.message;
