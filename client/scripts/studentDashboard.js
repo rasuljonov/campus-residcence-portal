@@ -15,6 +15,7 @@ function describeBeds(bedCount) {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('jwt');
     const container = document.getElementById('rooms-container');
@@ -52,7 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 function submitRoomRequest(roomId) {
+
     const token = localStorage.getItem('jwt');
     fetch('http://localhost:5000/students/room-request', {
         method: 'POST',
@@ -62,6 +65,7 @@ function submitRoomRequest(roomId) {
         },
         body: JSON.stringify({ roomId })
     })
+
     .then(response => {
         if (!response.ok) throw new Error('Failed to submit room request');
         return response.json();

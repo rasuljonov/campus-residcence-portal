@@ -7,7 +7,17 @@ const app = express();
 
 app.use(express.json());
 app.use(express.static('public')); 
-app.use(cors()); 
+
+const corsOptions = {
+    origin: ['http://127.0.0.1:5500'], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify methods allowed
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify headers allowed
+    credentials: true, // Required if your front-end needs to send credentials such as cookies or authentication headers
+    optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions)); 
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -18,4 +28,5 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes);  // Mounting auth routes
 app.use('/students', studenRoutes)
 
+// app.listen(APP.PORT, '0.0.0.0', () => console.log(`Server listening at http://0.0.0.0:${APP.PORT}`));
 app.listen(APP.PORT, () => console.log(`Server listen http://localhost:${APP.PORT}`));

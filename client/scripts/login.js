@@ -23,6 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
             // Store the token in localStorage or session
             
             localStorage.setItem('jwt', result.token);
+            console.log("from localStroge",localStorage);
             console.log(localStorage)
             console.log('Login successful: ', result.message);
             window.location.href = '/client/studentDashboard.html';
