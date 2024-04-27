@@ -1,11 +1,12 @@
 const express = require('express');
 const studentController = require('../controllers/studentController')
 const router = express.Router();
-const checkRole = require('../middleware/auth')
+const { checkRole, authenticateToken } = require('../middleware/auth')
 
 
-router.get('/rooms', checkRole('Student'), studentController.viewRoomDetails);
-router.post('/room-request', checkRole('Student'), studentController.submitRoomRequest); // Example for room request post route
+router.get('/rooms', authenticateToken, checkRole('Student'), studentController.viewRoomDetails);
 
+// Endpoint to submit a room request, accessible only to 'Student' role
+router.post('/room-request', authenticateToken, checkRole('Student'), studentController.submitRoomRequest);
 
 module.exports = router;
