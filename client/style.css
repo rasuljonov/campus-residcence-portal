@@ -94,3 +94,25 @@ h1 {
 #loginLink:hover {
     text-decoration: underline;
 }
+
+button {
+    padding: 8px 16px; /* Adjust padding */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Adjust font size */
+}
+
+/* Specific style for room request buttons */
+.room button {
+    width: auto; /* Only as wide as necessary */
+    display: inline-block; /* Allows setting width */
+    margin: 10px 0; /* Adds some space above and below the button */
+}
+
+/* Button hover effect */
+.room button:hover {
+    background-color: #45a049; /* Darker shade of green on hover */
+}
