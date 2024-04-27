@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2>Room Number: ${room.room_number}</h2>
                <p>Floor: ${room.floor}</p>
                <p>Beds: ${describeBeds(room.number_of_beds)}</p>
-                <button onclick="submitRoomRequest(${room.room_id})">Request This Room</button>
+                <button onclick="submitRoomRequest(${room.room_id})">Reserve This Room</button>
             `;
             container.appendChild(roomElement);
         });
@@ -124,9 +124,10 @@ function submitRoomRequest(roomId) {
         return response.json();
     })
     .then(result => {
-        alert('Room request submitted successfully.');
+        // alert('Room request submitted successfully.');
+        message
         console.log(result);
-        location.reload();  // Optional: reload the page to update the room list
+        location.reload();  
     })
     .catch(error => {
         console.error('Error submitting room request:', error);
