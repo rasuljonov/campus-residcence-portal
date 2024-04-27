@@ -1,4 +1,4 @@
-// Define the function directly within studentDashboard.js
+// // Define the function directly within studentDashboard.js
 function describeBeds(bedCount) {
     switch (bedCount) {
         case 1:
@@ -16,17 +16,11 @@ function describeBeds(bedCount) {
 
 
 
-
-// Existing code that uses this function
 document.addEventListener('DOMContentLoaded', function() {
-
-// Check if the token is available
-const token = localStorage.getItem('jwt');
-if (!token) {
-    console.error('No token found, redirecting to login.');
-    window.location.href = '/login.html'; // Redirect to login page if no token is found
-    return;
-}
+    const token = localStorage.getItem('jwt');
+    const container = document.getElementById('rooms-container');
+    const loadingIndicator = document.getElementById('loading');
+    loadingIndicator.style.display = 'block';  // Show loading indicator
 
     fetch('http://localhost:5000/students/rooms', {
         method: 'GET',
@@ -36,30 +30,32 @@ if (!token) {
         }
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
+        loadingIndicator.style.display = 'none';  // Hide loading indicator
+        if (!response.ok) throw new Error('Failed to load rooms');
         return response.json();
     })
-    .then(data => {
-        const container = document.getElementById('rooms-container');
-        data.forEach(room => {
-            const roomDiv = document.createElement('div');
-            roomDiv.className = 'room';
-            roomDiv.innerHTML = `
-                <h2>Room Number: ${room.room_number}</h2>
-                <p>Floor: ${room.floor}</p>
-                <p>Beds: ${describeBeds(room.number_of_beds)}</p>
+    .then(rooms => {
+        rooms.forEach(room => {
+            const roomElement = document.createElement('div');
+            roomElement.className = 'room';
+            roomElement.innerHTML = `
+            <h2>Room Number: ${room.room_number}</h2>
+               <p>Floor: ${room.floor}</p>
+               <p>Beds: ${describeBeds(room.number_of_beds)}</p>
+                <button onclick="submitRoomRequest(${room.room_id})">Reserve This Room</button>
             `;
-            container.appendChild(roomDiv);
+            container.appendChild(roomElement);
         });
     })
     .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
+        console.error('Error:', error);
+        container.innerHTML = '<p>Error loading rooms.</p>';
     });
 });
 
-function requestRoom(roomId) {
+
+function submitRoomRequest(roomId) {
+
     const token = localStorage.getItem('jwt');
     fetch('http://localhost:5000/students/room-request', {
         method: 'POST',
@@ -69,11 +65,19 @@ function requestRoom(roomId) {
         },
         body: JSON.stringify({ roomId })
     })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message); // Display feedback
+
+    .then(response => {
+        if (!response.ok) throw new Error('Failed to submit room request');
+        return response.json();
+    })
+    .then(result => {
+        // alert('Room request submitted successfully.');
+        message
+        console.log(result);
+        location.reload();  
     })
     .catch(error => {
         console.error('Error submitting room request:', error);
+        alert('Failed to submit room request.');
     });
 }
