@@ -14,63 +14,6 @@ function describeBeds(bedCount) {
     }
 }
 
-// // Existing code that uses this function
-// document.addEventListener('DOMContentLoaded', function() {
-//     const token = localStorage.getItem('jwt');
-//     fetch('http://localhost:5000/students/rooms', {
-//         method: 'GET',
-//         headers: {
-//             'Authorization': `Bearer ${token}`, 
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error('Network response was not ok ' + response.statusText);
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         const container = document.getElementById('rooms-container');
-//         data.forEach(room => {
-//             const roomDiv = document.createElement('div');
-//             roomDiv.className = 'room';
-//             roomDiv.innerHTML = `
-//                 <h2>Room Number: ${room.room_number}</h2>
-//                 <p>Floor: ${room.floor}</p>
-//                 <p>Beds: ${describeBeds(room.number_of_beds)}</p>
-//             `;
-//             container.appendChild(roomDiv);
-//         });
-//     })
-//     .catch(error => {
-//         console.error('There has been a problem with your fetch operation:', error);
-//     });
-// });
-
-// function submitRoomRequest(roomId) {
-
-//     const token = localStorage.getItem('jwt');
-//     fetch('http://localhost:5000/students/room-request', {
-//         method: 'POST',
-//         headers: {
-//             'Authorization': `Bearer ${token}`, 
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ roomId })
-//     })
-//     .then(response => response.json())
-//     .then(result => {
-//         alert(result.message); // Notify user of success or failure
-//         if (result.request) {
-//             console.log('Request details:', result.request);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error submitting room request:', error);
-//     });
-// }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('jwt');
