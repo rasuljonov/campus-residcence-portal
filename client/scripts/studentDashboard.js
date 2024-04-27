@@ -14,12 +14,24 @@ function describeBeds(bedCount) {
     }
 }
 
+
+
+
 // Existing code that uses this function
 document.addEventListener('DOMContentLoaded', function() {
+
+// Check if the token is available
+const token = localStorage.getItem('jwt');
+if (!token) {
+    console.error('No token found, redirecting to login.');
+    window.location.href = '/login.html'; // Redirect to login page if no token is found
+    return;
+}
+
     fetch('http://localhost:5000/students/rooms', {
         method: 'GET',
         headers: {
-            'Authorization': '', // Replace YOUR_JWT_TOKEN with a valid token
+            'Authorization': `Bearer ${token}`, 
             'Content-Type': 'application/json'
         }
     })
@@ -46,3 +58,22 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('There has been a problem with your fetch operation:', error);
     });
 });
+
+function requestRoom(roomId) {
+    const token = localStorage.getItem('jwt');
+    fetch('http://localhost:5000/students/room-request', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ roomId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message); // Display feedback
+    })
+    .catch(error => {
+        console.error('Error submitting room request:', error);
+    });
+}
