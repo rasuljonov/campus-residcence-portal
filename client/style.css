@@ -94,3 +94,39 @@ h1 {
 #loginLink:hover {
     text-decoration: underline;
 }
+
+button {
+    padding: 8px 16px; /* Adjust padding */
+    background-color: #5c67f2; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Adjust font size */
+}
+
+/* Specific style for room request buttons */
+.room button {
+    width: auto; /* Only as wide as necessary */
+    display: inline-block; /* Allows setting width */
+    margin: 10px 0; /* Adds some space above and below the button */
+}
+
+input[type="username"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    font-family: monospace; /* Monospace font for the dashed effect */
+    color: black;
+    opacity: 1; /* Make the placeholder fully visible */
+}
+
+input:focus::placeholder {
+    opacity: 0; /* Hide placeholder text on focus */
+}
