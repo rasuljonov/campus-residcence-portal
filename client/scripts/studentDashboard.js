@@ -1,4 +1,4 @@
-// // Define the function directly within studentDashboard.js
+
 function describeBeds(bedCount) {
     switch (bedCount) {
         case 1:
@@ -10,7 +10,7 @@ function describeBeds(bedCount) {
         case 4:
             return 'Quadruple';
         default:
-            return `${bedCount} Beds`; // Handles cases where bed count is above 4
+            return `${bedCount} Beds`; 
     }
 }
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('jwt');
     const container = document.getElementById('rooms-container');
     const loadingIndicator = document.getElementById('loading');
-    loadingIndicator.style.display = 'block';  // Show loading indicator
+    loadingIndicator.style.display = 'block'; 
 
     fetch('http://localhost:5000/students/rooms', {
         method: 'GET',
