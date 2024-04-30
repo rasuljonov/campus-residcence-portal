@@ -5,15 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Rooms</title>
     <link rel="stylesheet" href="style.css">
+    <script src="scripts/studentDashboard.js" type="module" defer></script>
 </head>
 <body>
     <h1>Available Rooms</h1>
     <div id="loading" style="display: none;">Loading rooms, please wait...</div>
-
-    <div id="rooms-container">
-        <!-- Rooms will be loaded here by JavaScript -->
+    <div id="rooms-container"></div>
+    <div class="modal-backdrop" onclick="closeModal()">
+        <div id="room-request-form" onclick="event.stopPropagation()"> 
+        <h2>Submit Room Request</h2>
+        <button type="button" class="close-btn" onclick="closeModal()">X</button> <!-- Close button -->
+        <form>
+            <input type="hidden" id="selectedRoomId" name="roomId">
+            <div>
+                <label for="passportNumber">Passport Number:</label>
+                <input type="text" id="passportNumber" name="passportNumber" required>
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <select id="city" name="city" required>
+                    <option value="">Select a city</option>
+                    <option value="Andijon city">Andijon city</option>
+                    <option value="Bukhara city">Bukhara city</option>
+                    <option value="Ferghana city">Ferghana city</option>
+                    <option value="Jizzakh city">Jizzakh city</option>
+                    <option value="Khorezm city">Khorezm city</option>
+                </select>
+            </div>
+            <button type="button" onclick="submitRoomRequest()">Submit Request</button>
+        </form>
     </div>
-
-    <script type="module" src="scripts/studentDashboard.js"></script>
 </body>
 </html>
