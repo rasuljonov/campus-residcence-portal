@@ -89,13 +89,15 @@
             }
 
             const user = rows[0];
+    
+            console.log('from jwt',user)
 
             const isValid = await bcrypt.compare(password, user.password_hash);
             if (!isValid) {
                 return res.status(401).json({ message: 'Incorrect password' });
             }
-            const token = jwt.sign({userId: rows[0].id, role: rows[0].role}, APP.SECRET_KEY, {expiresIn: APP.EXPIRE_TIME || '1h'});
-            
+            const token = jwt.sign({userId: user.id, role: user.role}, APP.SECRET_KEY, {expiresIn: APP.EXPIRE_TIME || '1h'});
+           console.log('ss',user.id)
 
             res.json({
                 message: 'Login successful',
