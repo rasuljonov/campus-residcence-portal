@@ -1,4 +1,4 @@
-    // // auth.js
+    // // // auth.js
 
     // const jwt = require('jsonwebtoken');
     // const { APP } = require('../config'); // Ensure APP config includes SECRET_KEY
