@@ -1,6 +1,6 @@
 // staffController.js
 const { db } = require('../db'); 
-const {  } = require('../validations/userValidation')
+const { } = require('../validations/userValidation')
 
 
 
