@@ -17,7 +17,6 @@ exports.viewRoomDetails = async  (req, res) => {
 
 exports.submitRoomRequest = async (req, res) => {
     const  userId  = req.user.userId;
-    console.log('heeey', userId)
     const { roomId, passportNumber, city } = req.body;
     console.log(req.body)
 
@@ -28,14 +27,14 @@ exports.submitRoomRequest = async (req, res) => {
     }
 
     try {
-        const available = await db.query('SELECT available FROM room WHERE room_id = $1', [roomId]);
+        const available = await db.query('SELECT * FROM room WHERE room_id = $1', [roomId]);
         if (available.rows.length === 0 || !available.rows[0].available) {
             return res.status(400).json({ message: 'Room not available' });
         }
 
         const existingRequest = await db.query(
-            'SELECT * FROM request WHERE user_id = $1 AND room_id = $2 AND request_details = $3', 
-            [userId, roomId, 'pending']
+            'SELECT * FROM request WHERE user_id = $1 AND room_id = $2',
+            [userId, roomId]
         );
         if (existingRequest.rows.length > 0) {
             return res.status(400).json({ message: 'Request already submitted' });
