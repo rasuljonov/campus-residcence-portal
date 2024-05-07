@@ -18,7 +18,7 @@ exports.viewRoomDetails = async  (req, res) => {
 exports.submitRoomRequest = async (req, res) => {
     const  userId  = req.user.userId;
     const { roomId, passportNumber, city } = req.body;
-    console.log(req.body)
+    console.log(req)
 
     // Validate input
     const { error } = roomRequestSchema.validate({ roomId, passportNumber, city });
@@ -35,7 +35,11 @@ exports.submitRoomRequest = async (req, res) => {
         const existingRequest = await db.query(
             'SELECT * FROM request WHERE user_id = $1 AND room_id = $2',
             [userId, roomId]
+
+            
         );
+
+        console.log(userId)
         if (existingRequest.rows.length > 0) {
             return res.status(400).json({ message: 'Request already submitted' });
         }

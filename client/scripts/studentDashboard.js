@@ -10,16 +10,20 @@ function describeBeds(bedCount) {
 }
 
 
+function closeModal() {
+    const modal = document.getElementById('room-request-form');
+    const backdrop = document.querySelector('.modal-backdrop');
+    modal.style.display = 'none';
+    backdrop.style.display = 'none';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    function closeModal() {
-        document.getElementById('room-request-form').style.display = 'none';
-        document.querySelector('.modal-backdrop').style.display = 'none';
-        
-    }
-    
+    const backBtn = document.querySelector('.close-btn');
+    backBtn.addEventListener('click', closeModal);
+
     document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape") {  // Check if the key pressed is the Escape key
-            closeModal();  // Call the closeModal function
+        if (event.key === "Escape") {
+            closeModal();
         }
     });
 });
@@ -75,10 +79,7 @@ function submitRoomRequest() {
     const passportNumber = document.getElementById('passportNumber').value;
     const city = document.getElementById('city').value;
     const token = localStorage.getItem('jwt');
-    console.log('Roomid',roomId)
-    console.log('passport',passportNumber)
-    console.log('C',city)
-    console.log('Roomid',token)
+   
 
     if (!confirm('Are you sure you want to submit this room request?')) {
         return; // Stop the function if the user cancels
