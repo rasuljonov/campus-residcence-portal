@@ -18,8 +18,8 @@ const roomRequestSchema = Joi.object({
     passportNumber: Joi.string().regex(/^[A-Z]{2}\d{7}$/).required().messages({
         'string.pattern.base': `"passportNumber" should start with two letters followed by seven digits`
     }),
-    city: Joi.string().valid('Andijan city', 'Bukhara city', 'Ferghana city', 'Jizzakh city', 'Khorezm city').required().messages({
-        'any.only': `"city" must be one of the following: Andijon city, Bukhara city, Ferghana city, Jizzakh city, Khorezm city`,
+    city: Joi.string().valid('Andijan', 'Bukhara', 'Ferghana', 'Jizzakh', 'Khorezm').required().messages({
+        'any.only': `"city" must be one of the following: Andijan, Bukhara, Ferghana, Jizzakh, Khorezm`,
         'any.required': `"city" is a required field`
     })
 });

@@ -14,7 +14,7 @@
     <div class="modal-backdrop" onclick="closeModal()">
         <div id="room-request-form" onclick="event.stopPropagation()"> 
         <h2>Submit Room Request</h2>
-        <button type="button" class="close-btn" onclick="closeModal()">X</button> <!-- Close button -->
+        <button type="button" class="close-btn" onclick="closeModal()">Back</button> <!-- Close button -->
         <form>
             <input type="hidden" id="selectedRoomId" name="roomId">
             <div>
@@ -25,11 +25,11 @@
                 <label for="city">City:</label>
                 <select id="city" name="city" required>
                     <option value="">Select a city</option>
-                    <option value="Andijan city">Andijon city</option>
-                    <option value="Bukhara city">Bukhara city</option>
-                    <option value="Ferghana city">Ferghana city</option>
-                    <option value="Jizzakh city">Jizzakh city</option>
-                    <option value="Khorezm city">Khorezm city</option>
+                    <option value="Andijan">Andijan</option>
+                    <option value="Bukhara">Bukhara</option>
+                    <option value="Ferghana">Ferghana</option>
+                    <option value="Jizzakh">Jizzakh</option>
+                    <option value="Khorezm">Khorezm</option>
                 </select>
             </div>
             <button type="button" onclick="submitRoomRequest()">Submit Request</button>
