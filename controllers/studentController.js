@@ -1,5 +1,6 @@
 const { db } = require('../db'); 
 const { roomRequestSchema } = require('../validations/userValidation')
+const jwt = require('jsonwebtoken')
 
 
 exports.viewRoomDetails = async  (req, res) => {
@@ -16,7 +17,9 @@ exports.viewRoomDetails = async  (req, res) => {
 }
 
 exports.submitRoomRequest = async (req, res) => {
-    const  userId  = req.user.userId;
+    const  userId  = req.user
+    console.log('helloFRomSubmit',req.user)
+    console.log('secondHelloFromSubmit', req.user.user_Id)
     const { roomId, passportNumber, city } = req.body;
     console.log(req)
 
@@ -39,11 +42,11 @@ exports.submitRoomRequest = async (req, res) => {
             
         );
 
-        console.log(userId)
         if (existingRequest.rows.length > 0) {
             return res.status(400).json({ message: 'Request already submitted' });
         }
 
+        console.log(existingRequest.rows)
         // Insert the room request with additional details
         const result = await db.query(
             'INSERT INTO request (user_id, room_id, passport_number, city) VALUES ($1, $2, $3, $4) RETURNING *', 
