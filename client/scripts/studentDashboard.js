@@ -79,6 +79,7 @@ function submitRoomRequest() {
     const passportNumber = document.getElementById('passportNumber').value;
     const city = document.getElementById('city').value;
     const token = localStorage.getItem('jwt');
+    console.log('token',token)
    
 
     if (!confirm('Are you sure you want to submit this room request?')) {

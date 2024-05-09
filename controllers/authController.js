@@ -41,8 +41,13 @@
                 [username, hashedPassword, phone, role]
             );
 
-            const newUser = result.rows[0];
-            const token = jwt.sign({ userId: newUser.id, role: newUser.role }, APP.SECRET_KEY, { expiresIn: APP.EXPIRE_TIME || '1h' });
+            const user = result.rows[0];
+
+            console.log('from jwt', user)
+            const token = jwt.sign({ user_id: user.id, role: user.role }, APP.SECRET_KEY, { expiresIn: APP.EXPIRE_TIME || '1h' });
+            console.log  ('token', token)
+
+
     
             res.cookie('token', token, {
                 httpOnly: true,
@@ -96,8 +101,8 @@
             if (!isValid) {
                 return res.status(401).json({ message: 'Incorrect password' });
             }
-            const token = jwt.sign({userId: user.id, role: user.role}, APP.SECRET_KEY, {expiresIn: APP.EXPIRE_TIME || '1h'});
-           console.log('ss',user.id)
+            const token = jwt.sign({user_id: user.id, role: user.role}, APP.SECRET_KEY, {expiresIn: APP.EXPIRE_TIME || '1h'});
+        //    console.log  ('token', token)
 
             res.json({
                 message: 'Login successful',

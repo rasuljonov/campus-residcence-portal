@@ -18,7 +18,7 @@
             }
 
             req.user = decoded; // Attach decoded token to request
-            console.log( 'middleware',decoded)
+            console.log('Hello', req.user)
             next();
         });
     };
