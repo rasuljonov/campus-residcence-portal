@@ -2,6 +2,7 @@ const { db } = require('../db');
 const { roomRequestSchema } = require('../validations/userValidation')
 const jwt = require('jsonwebtoken')
 
+// No updates for now
 
 exports.viewRoomDetails = async  (req, res) => {
     try {
