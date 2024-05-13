@@ -28,5 +28,5 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes);  // Mounting auth routes
 app.use('/students', studenRoutes)
 
-// app.listen(APP.PORT, '0.0.0.0', () => console.log(`Server listening at http://0.0.0.0:${APP.PORT}`));
+
 app.listen(APP.PORT, () => console.log(`Server listen http://localhost:${APP.PORT}`));
