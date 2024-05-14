@@ -24,4 +24,9 @@ const roomRequestSchema = Joi.object({
     })
 });
 
+const staffSchema = Joi.object({
+    
+
+});
+
 module.exports = { registerSchema, loginSchema, roomRequestSchema};
