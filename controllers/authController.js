@@ -1,9 +1,14 @@
-    const bcrypt = require('bcrypt');
-    const { db } = require('../db'); 
-    const jwt = require('jsonwebtoken')
-    const {APP} = require('../config')
-    const { registerSchema, loginSchema } = require('../validations/userValidation');
+    // const bcrypt = require('bcrypt');
+    // const { db } = require('../db'); 
+    // const jwt = require('jsonwebtoken')
+    // const {APP} = require('../config')
+    // const { registerSchema, loginSchema } = require('../validations/userValidation');
 
+    const bcrypt = require('bcrypt');
+    const { db } = require('../db');
+    const jwt = require('jsonwebtoken');
+    const { APP } = require('../config');
+    const { registerSchema, loginSchema } = require('../validations/userValidation');
 
 
     // Registration controller
