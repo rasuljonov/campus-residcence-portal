@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingIndicator = document.getElementById('loading');
     loadingIndicator.style.display = 'block';
 
-    fetch('http://localhost:5000/students/rooms', {
+    fetch('http://localhost3000/students/rooms', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -86,7 +86,7 @@ function submitRoomRequest() {
         return; // Stop the function if the user cancels
     }
 
-    fetch('http://localhost:5000/students/room-request', {
+    fetch('http://localhost:3000/students/room-request', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,

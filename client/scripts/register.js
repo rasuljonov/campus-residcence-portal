@@ -11,7 +11,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
     const messageElement = document.getElementById('message');
 
     try {
-        const response = await fetch('http://localhost:5000/auth/register', {
+        const response = await fetch('http://localhost:3000/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
