@@ -19,7 +19,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
             body: JSON.stringify(formData)
         });
 
-        const result = await response.json(); // This must be within try block and await should succeed
+        const result = await response.json(); 
         console.log(result);
 
         if (response.ok) {
