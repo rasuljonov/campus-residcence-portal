@@ -20,7 +20,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
         });
 
         const result = await response.json(); 
-        // console.log(result);
+      
 
         if (response.ok) {
             messageElement.textContent = 'Registration successful!';
