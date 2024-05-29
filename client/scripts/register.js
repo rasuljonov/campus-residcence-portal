@@ -21,7 +21,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
 
         const result = await response.json(); 
       
-
+        //If response ok 
         if (response.ok) {
             messageElement.textContent = 'Registration successful!';
             messageElement.style.color = 'green'; // Change color for success message
