@@ -1,3 +1,3 @@
-Welcome to campus residence portal 🙌🏻
+Welcome to campus residence portal🙌🏻
 
 
