@@ -6,7 +6,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
         phone: document.getElementById('phone').value,
         role: document.getElementById('role').value
     };
-
+//
     const messageElement = document.getElementById('message');
 //
     try {
