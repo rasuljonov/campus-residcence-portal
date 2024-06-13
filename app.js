@@ -30,4 +30,4 @@ app.use('/students', studenRoutes)
 
 
 app.listen(APP.PORT, () => console.log(`Server listen http://localhost:${APP.PORT}`));
-// Just observed
+// Just observe
