@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Welcome to campus residence portal');
 });
-//
+
 
 
 app.use('/auth', authRoutes);  // Mounting auth routes
