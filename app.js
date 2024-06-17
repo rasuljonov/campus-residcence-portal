@@ -1,4 +1,5 @@
 const express = require('express');
+
 const cors = require('cors'); 
 const { APP } = require('./config')
 const authRoutes = require('./routes/authRoutes')
